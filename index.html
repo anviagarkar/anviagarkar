@@ -184,6 +184,18 @@
   .btn.primary:hover{ transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--wine); }
   .btn.ghost:hover{ transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--slate-soft); }
 
+  .hero-photo{
+    width: min(220px, 60%);
+    aspect-ratio:4/5;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    box-shadow:4px 5px 0 var(--shadow);
+    overflow:hidden;
+    transform:rotate(-2deg);
+    margin-bottom:24px;
+  }
+  .hero-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
   .hero-card{
     background:var(--surface);
     border:1px solid var(--line);
@@ -462,12 +474,15 @@
           <a class="btn ghost" href="https://github.com/anviagarkar" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
-      <div class="hero-card">
-        <div class="row"><span class="label">Grad</span><span>Maynooth University, 2026</span></div>
-        <div class="row"><span class="label">Honours</span><span>First Class · 80%</span></div>
-        <div class="row"><span class="label">Latest role</span><span>Digital Process &amp; Automation Intern, UNUM</span></div>
-        <div class="row"><span class="label">Cert</span><span>Pega CSA</span></div>
-        <div class="row"><span class="label">Based in</span><span>Dublin, Ireland</span></div>
+      <div>
+        <div class="hero-photo"><img src="YOUR-PHOTO.jpg" alt="Anvi Agarkar" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+        <div class="hero-card">
+          <div class="row"><span class="label">Grad</span><span>Maynooth University, 2026</span></div>
+          <div class="row"><span class="label">Honours</span><span>First Class · 80%</span></div>
+          <div class="row"><span class="label">Latest role</span><span>Digital Process &amp; Automation Intern, UNUM</span></div>
+          <div class="row"><span class="label">Cert</span><span>Pega CSA</span></div>
+          <div class="row"><span class="label">Based in</span><span>Dublin, Ireland</span></div>
+        </div>
       </div>
     </div>
   </section>
