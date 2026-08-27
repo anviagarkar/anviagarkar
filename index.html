@@ -203,6 +203,7 @@
   }
   .hero-card .row:last-child{border-bottom:none;}
   .hero-card .label{color:var(--slate-soft); text-transform:uppercase; font-size:0.7rem; letter-spacing:0.06em; white-space:nowrap; flex-shrink:0;}
+  .hero-card .row > span:last-child{ text-align:right; }
 
   /* ---------- SECTION SHELL ---------- */
   section{ padding: clamp(48px, 8vw, 88px) 0; }
@@ -411,18 +412,13 @@
   }
   @media (max-width:760px){ .foot-social{ flex-direction:row; flex-wrap:wrap; } }
   .foot-social a{
-    writing-mode: vertical-rl;
     text-decoration:none;
     color:color-mix(in srgb, var(--cream) 85%, transparent);
     border:1px solid color-mix(in srgb, var(--cream) 25%, transparent);
     border-radius:6px;
-    padding:14px 10px;
-  }
-  @media (max-width:760px){
-    .foot-social a{ writing-mode: horizontal-tb; padding:8px 12px; }
+    padding:8px 14px;
   }
   .foot-social a:hover{ color:var(--ink); background:var(--mustard); border-color:var(--mustard); }
-
   .foot-bottom{
     margin-top:clamp(40px,6vw,64px);
     padding-top:20px;
@@ -445,7 +441,6 @@
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#photo">Photography</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -590,14 +585,14 @@
         <h2>Behind the lens</h2>
         <span class="section-num">04 / photo</span>
       </div>
-      <p class="photo-intro"><p class="photo-intro">Not a portfolio, not a side hustle — just shots from places I've traveled and moments I didn't want to lose. SafarNama started with this too.</p></p>
+      <p class="photo-intro">Not a portfolio, not a side hustle — travel photos, mostly moments I didn't wanna lose. SafarNama started with this too.</p>
       <div class="photo-grid">
-        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 01<br>replace me</span></div>
-        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 02<br>replace me</span></div>
-        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 03<br>replace me</span></div>
-        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 04<br>replace me</span></div>
-        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 05<br>replace me</span></div>
-        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 06<br>replace me</span></div>
+        <div class="photo-tile"><img src="photos/ams.jpg" alt="Amsterdam" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="photo-tile"><img src="photos/newyork.jpg" alt="New York" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="photo-tile"><img src="photos/dublin.jpg" alt="Dublin" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="photo-tile"><img src="photos/boston.jpg" alt="Boston" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="photo-tile"><img src="photos/bali.jpg" alt="Bali" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="photo-tile"><img src="photos/japan.jpg" alt="Japan" style="width:100%;height:100%;object-fit:cover;"></div>
       </div>
     </div>
   </section>
@@ -605,7 +600,6 @@
 
 <footer id="contact">
   <div class="wrap">
-    <div class="footer-marquee">behind the lens · behind the lens · behind the lens · behind the lens · behind the lens · behind the lens ·&nbsp;</div>
     <div class="footer-grid">
       <div>
         <h2>Let's talk.</h2>
@@ -616,7 +610,6 @@
         <span class="eyebrow" style="color:var(--mustard)">Site navigation</span>
         <a href="#work">Work</a>
         <a href="#projects">Projects</a>
-        <a href="#photo">Photography</a>
         <a href="#contact">Contact</a>
       </div>
       <div class="foot-social">
