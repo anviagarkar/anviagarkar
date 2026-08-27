@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Anvi Agarkar</title>
+<meta name="description" content="Software engineer & photographer — portfolio and CV for Anvi Agarkar." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Work+Sans:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F1EAD9;
+    --cream-2:#E8DFC9;
+    --ink:#1C1712;
+    --ink-soft:#4A4038;
+    --wine:#8B1E2E;
+    --wine-soft:#B7495A;
+    --plum:#5A1F2A;
+    --mustard:#C9962F;
+    --slate:#48545F;
+    --slate-soft:#7C8790;
+    --line: rgba(28,23,18,0.14);
+    --surface: #FFFDF8;
+    --shadow: rgba(28,23,18,0.18);
+    --focus: #2E6E8E;
+  }
+  /* This page commits to one warm, cream-and-wine visual identity on purpose —
+     it renders the same for every visitor regardless of their system theme,
+     so a recruiter on dark mode still sees the intended editorial look. */
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', ui-sans-serif, system-ui, sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--focus);
+    outline-offset:3px;
+    border-radius:2px;
+  }
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 clamp(20px, 5vw, 48px);
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', ui-serif, Georgia, serif;
+    font-weight:600;
+    text-wrap:balance;
+    margin:0;
+  }
+
+  .eyebrow{
+    font-family:'Space Mono', ui-monospace, monospace;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--wine);
+  }
+
+  /* ---------- NAV ---------- */
+  header.nav{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:color-mix(in srgb, var(--cream) 88%, transparent);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px clamp(20px, 5vw, 48px);
+    max-width:1080px;
+    margin:0 auto;
+  }
+  .nav-name{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.05rem;
+    letter-spacing:0.01em;
+  }
+  .nav-links{
+    display:flex;
+    gap:clamp(14px, 3vw, 28px);
+    list-style:none;
+    margin:0; padding:0;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+  .nav-links a{text-decoration:none; border-bottom:1px solid transparent;}
+  .nav-links a:hover{border-bottom-color:var(--wine); color:var(--wine);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:clamp(56px, 10vw, 108px) 0 clamp(40px, 6vw, 72px);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap:clamp(28px, 5vw, 56px);
+    align-items:center;
+  }
+  @media (max-width: 760px){ .hero-grid{grid-template-columns:1fr;} }
+
+  .badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--slate);
+    border:1px solid var(--line);
+    background:var(--surface);
+    padding:6px 12px;
+    border-radius:999px;
+    transform:rotate(-1.2deg);
+    box-shadow:2px 3px 0 var(--shadow);
+    margin-bottom:22px;
+  }
+  .badge::before{content:"●"; color:var(--mustard); font-size:0.6rem;}
+
+  .hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.2rem);
+    line-height:1.02;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--wine);
+  }
+  .hero p.lede{
+    margin-top:20px;
+    max-width:52ch;
+    font-size:1.08rem;
+    color:var(--ink-soft);
+  }
+
+  .cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+  }
+  .btn{
+    font-family:'Space Mono', monospace;
+    font-size:0.82rem;
+    letter-spacing:0.03em;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:6px;
+    border:1.5px solid var(--ink);
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .btn.primary{
+    background:var(--ink);
+    color:var(--cream);
+  }
+  .btn.primary:hover{ transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--wine); }
+  .btn.ghost:hover{ transform:translate(-2px,-2px); box-shadow:4px 4px 0 var(--slate-soft); }
+
+  .hero-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px;
+    box-shadow:6px 6px 0 var(--shadow);
+    transform:rotate(1deg);
+    font-family:'Space Mono', monospace;
+    font-size:0.82rem;
+  }
+  .hero-card .row{
+    display:flex;
+    justify-content:space-between;
+    padding:9px 0;
+    border-bottom:1px dashed var(--line);
+    gap:10px;
+  }
+  .hero-card .row:last-child{border-bottom:none;}
+  .hero-card .label{color:var(--slate-soft); text-transform:uppercase; font-size:0.7rem; letter-spacing:0.06em;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{ padding: clamp(48px, 8vw, 88px) 0; }
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:clamp(28px, 5vw, 44px);
+    border-bottom:1px solid var(--line);
+    padding-bottom:16px;
+  }
+  .section-head h2{ font-size:clamp(1.6rem, 3.4vw, 2.3rem); }
+  .section-num{ font-family:'Space Mono', monospace; color:var(--slate-soft); font-size:0.85rem; }
+
+  #work{ background:var(--cream-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+
+  /* ---------- EXPERIENCE ---------- */
+  .timeline{ display:flex; flex-direction:column; gap:0; }
+  .job{
+    display:grid;
+    grid-template-columns: 160px 1fr;
+    gap:24px;
+    padding:22px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .job:last-child{border-bottom:none;}
+  @media (max-width:640px){ .job{grid-template-columns:1fr;} }
+  .job .when{ font-family:'Space Mono', monospace; font-size:0.78rem; color:var(--slate); padding-top:3px; }
+  .job h3{ font-size:1.15rem; font-weight:600; }
+  .job .org{ color:var(--wine); font-weight:600; }
+  .job ul{ margin:10px 0 0; padding-left:20px; color:var(--ink-soft); }
+  .job li{ margin-bottom:6px; }
+
+  /* ---------- PROJECTS ---------- */
+  .proj-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
+  }
+  @media (max-width:700px){ .proj-grid{grid-template-columns:1fr;} }
+  .proj-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .proj-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .proj-card h3{ font-size:1.1rem; }
+  .score{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    background:var(--mustard);
+    color:var(--ink);
+    padding:3px 8px;
+    border-radius:4px;
+    white-space:nowrap;
+  }
+  .stack{
+    display:flex; flex-wrap:wrap; gap:6px;
+    font-family:'Space Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.02em;
+  }
+  .stack span{
+    border:1px solid var(--line);
+    padding:3px 8px;
+    border-radius:999px;
+    color:var(--slate);
+  }
+  .proj-card p{ margin:0; color:var(--ink-soft); font-size:0.94rem; }
+
+  /* ---------- SKILLS ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+    gap:24px;
+  }
+  .skill-cat .eyebrow{ margin-bottom:10px; display:block; }
+  .skill-cat p{ margin:0; color:var(--ink-soft); font-size:0.92rem; }
+
+  /* ---------- PHOTOGRAPHY ---------- */
+  #photo{ position:relative; }
+  #photo .section-head{ border-bottom-color:var(--wine); }
+  .photo-intro{ max-width:60ch; color:var(--ink-soft); margin-bottom:32px; }
+  .photo-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:18px;
+  }
+  @media (max-width:760px){ .photo-grid{grid-template-columns:repeat(2, 1fr);} }
+  @media (max-width:480px){ .photo-grid{grid-template-columns:1fr;} }
+
+  .photo-tile{
+    aspect-ratio:4/5;
+    border-radius:8px;
+    border:1px solid var(--line);
+    background:var(--surface);
+    box-shadow:4px 5px 0 var(--shadow);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:flex-end;
+    transition:transform .2s ease;
+  }
+  .photo-tile:hover{ transform:translateY(-4px) rotate(-0.6deg); }
+  .photo-tile:nth-child(3n+1){ transform:rotate(-1.4deg); }
+  .photo-tile:nth-child(3n+2){ transform:rotate(0.8deg); }
+  .photo-tile:nth-child(3n+3){ transform:rotate(-0.4deg); }
+  .photo-tile:hover:nth-child(3n+1){ transform:translateY(-4px) rotate(-2.2deg); }
+  .photo-tile:hover:nth-child(3n+2){ transform:translateY(-4px) rotate(1.6deg); }
+
+  .photo-fill{
+    position:absolute; inset:0;
+    background: repeating-linear-gradient(135deg, var(--ph1) 0 14px, var(--ph2) 14px 28px);
+    opacity:0.9;
+  }
+  .photo-tile:nth-child(6n+1){ --ph1: color-mix(in srgb, var(--wine) 22%, var(--surface)); --ph2: color-mix(in srgb, var(--wine) 12%, var(--surface)); }
+  .photo-tile:nth-child(6n+2){ --ph1: color-mix(in srgb, var(--mustard) 24%, var(--surface)); --ph2: color-mix(in srgb, var(--mustard) 12%, var(--surface)); }
+  .photo-tile:nth-child(6n+3){ --ph1: color-mix(in srgb, var(--slate) 20%, var(--surface)); --ph2: color-mix(in srgb, var(--slate) 10%, var(--surface)); }
+  .photo-tile:nth-child(6n+4){ --ph1: color-mix(in srgb, var(--ink) 16%, var(--surface)); --ph2: color-mix(in srgb, var(--ink) 8%, var(--surface)); }
+  .photo-tile:nth-child(6n+5){ --ph1: color-mix(in srgb, var(--wine-soft) 22%, var(--surface)); --ph2: color-mix(in srgb, var(--wine-soft) 10%, var(--surface)); }
+  .photo-tile:nth-child(6n+6){ --ph1: color-mix(in srgb, var(--slate-soft) 20%, var(--surface)); --ph2: color-mix(in srgb, var(--slate-soft) 10%, var(--surface)); }
+
+  .photo-caption{
+    position:relative;
+    z-index:2;
+    width:100%;
+    padding:12px 14px;
+    background:linear-gradient(to top, color-mix(in srgb, var(--ink) 55%, transparent), transparent);
+    color:var(--cream);
+    font-family:'Space Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.03em;
+  }
+  .photo-placeholder-label{
+    position:relative;
+    z-index:2;
+    margin:auto;
+    text-align:center;
+    width:100%;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    padding:0 10px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--plum);
+    color:var(--cream);
+    padding:clamp(48px,8vw,80px) 0 28px;
+  }
+  .footer-marquee{
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:color-mix(in srgb, var(--cream) 45%, transparent);
+    overflow:hidden;
+    white-space:nowrap;
+    border-top:1px solid color-mix(in srgb, var(--cream) 20%, transparent);
+    border-bottom:1px solid color-mix(in srgb, var(--cream) 20%, transparent);
+    padding:10px 0;
+    margin-bottom:clamp(36px,6vw,56px);
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1fr auto;
+    gap:clamp(24px,5vw,48px);
+    align-items:start;
+  }
+  @media (max-width:760px){ .footer-grid{grid-template-columns:1fr;} }
+  footer h2{ font-size:clamp(1.6rem,4vw,2.2rem); color:var(--cream); }
+  footer .foot-lede{ color:color-mix(in srgb, var(--cream) 70%, transparent); margin-top:14px; max-width:40ch; }
+  .foot-cta{ margin-top:22px; }
+  .foot-cta a{
+    font-family:'Space Mono', monospace;
+    font-size:0.85rem;
+    text-decoration:none;
+    border-bottom:1px solid var(--mustard);
+    color:var(--mustard);
+    padding-bottom:2px;
+  }
+  .foot-links{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-family:'Space Mono', monospace;
+    font-size:0.82rem;
+    letter-spacing:0.02em;
+  }
+  .foot-links a{ text-decoration:none; color:color-mix(in srgb, var(--cream) 85%, transparent); }
+  .foot-links a:hover{ color:var(--mustard); }
+  .foot-social{
+    display:flex;
+    flex-direction:row;
+    gap:14px;
+    font-family:'Space Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+  }
+  @media (max-width:760px){ .foot-social{ flex-direction:row; flex-wrap:wrap; } }
+  .foot-social a{
+    writing-mode: vertical-rl;
+    text-decoration:none;
+    color:color-mix(in srgb, var(--cream) 85%, transparent);
+    border:1px solid color-mix(in srgb, var(--cream) 25%, transparent);
+    border-radius:6px;
+    padding:14px 10px;
+  }
+  @media (max-width:760px){
+    .foot-social a{ writing-mode: horizontal-tb; padding:8px 12px; }
+  }
+  .foot-social a:hover{ color:var(--ink); background:var(--mustard); border-color:var(--mustard); }
+
+  .foot-bottom{
+    margin-top:clamp(40px,6vw,64px);
+    padding-top:20px;
+    border-top:1px solid color-mix(in srgb, var(--cream) 20%, transparent);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+    font-family:'Space Mono', monospace;
+    font-size:0.72rem;
+    color:color-mix(in srgb, var(--cream) 55%, transparent);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="nav-name">Anvi Agarkar</div>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#photo">Photography</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="badge">Stamp 1G eligible — no sponsorship required</span>
+        <h1>Software engineer.<br>Sometimes behind a <em>camera</em>.</h1>
+        <p class="lede">I'm Anvi — a CS &amp; Software Engineering graduate from Maynooth University (First Class Honours), building things that range from passkey authentication systems to ML models for cardiac screening. Based in Dublin.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="#contact">Get in touch →</a>
+          <a class="btn ghost" href="CV_Anvi_Agarkar.pdf" target="_blank" rel="noopener">Download CV ↓</a>
+          <a class="btn ghost" href="https://github.com/anviagarkar" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="row"><span class="label">Grad</span><span>Maynooth University, 2026</span></div>
+        <div class="row"><span class="label">Honours</span><span>First Class · 80%</span></div>
+        <div class="row"><span class="label">Latest role</span><span>Digital Process &amp; Automation Intern, UNUM</span></div>
+        <div class="row"><span class="label">Cert</span><span>Pega CSA</span></div>
+        <div class="row"><span class="label">Based in</span><span>Dublin, Ireland</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <span class="section-num">01 / work</span>
+      </div>
+      <div class="timeline">
+        <div class="job">
+          <div class="when">Oct 2025 – May 2026</div>
+          <div>
+            <h3>Lab Demonstrator <span class="org">· Maynooth University</span></h3>
+            <ul>
+              <li>Support ~120 students across Theory of Computation, Databases, and Software Engineering &amp; Processes</li>
+              <li>Run lab sessions, mark work, and give one-to-one guidance each term</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="when">Feb 2025 – Aug 2025</div>
+          <div>
+            <h3>Digital Process &amp; Automation Intern <span class="org">· UNUM</span></h3>
+            <ul>
+              <li>Automated 10–12 business workflows using Pega and Constellation within a 10-person Agile team, reducing manual effort</li>
+              <li>Delivered 10+ user stories end-to-end within Agile sprints — writing, unit testing, debugging, and merging code with senior developer review</li>
+              <li>Earned Pega CSA certification</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Selected projects</h2>
+        <span class="section-num">02 / build</span>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card">
+          <div class="proj-top">
+            <h3>Password-less Biometrics Authentication</h3>
+            <span class="score">100%</span>
+          </div>
+          <p>Led frontend development in a 6-person team to deliver a full passkey system supporting fingerprint and facial recognition across web and mobile. Mentored directly by Microsoft engineers through weekly design reviews.</p>
+          <div class="stack"><span>React</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>TypeScript</span><span>SimpleWebAuthn</span><span>Azure</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-top">
+            <h3>ECG Monitoring &amp; SHD Detection</h3>
+            <span class="score">AUROC 0.74</span>
+          </div>
+          <p>Final year project — adapted a pretrained multi-lead ResNet-1D for single-lead structural heart disease detection using a custom lead-masking approach. AUPRC 0.68 on the PhysioNet dataset.</p>
+          <div class="stack"><span>Python</span><span>PyTorch</span><span>TensorFlow/Keras</span><span>Pandas</span><span>NumPy</span><span>ResNet-1D</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-top">
+            <h3>SafarNama — iOS App</h3>
+            <span class="score">88%</span>
+          </div>
+          <p>A city-discovery iOS app with real-time location tracking, user-generated notes, photos, and reviews. Architected with MVVM for scalable, maintainable code.</p>
+          <div class="stack"><span>Swift</span><span>SwiftUI</span><span>Firebase Storage</span><span>Firebase Auth</span><span>MVVM</span><span>Xcode</span></div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-top">
+            <h3>Intern Security Challenge</h3>
+            <span class="score">300+ audience</span>
+          </div>
+          <p>Built custom open-source security tools using Semgrep and Opengrep to detect vulnerabilities in application code, aiming to replace Veracode ($100k/yr). Presented the final solution to 300+ UNUM employees.</p>
+          <div class="stack"><span>Opengrep</span><span>Semgrep</span><span>Static Analysis</span><span>AppSec</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <span class="section-num">03 / stack</span>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-cat">
+          <span class="eyebrow">Languages</span>
+          <p>Python, Java, JavaScript, TypeScript, HTML/CSS, SQL, Swift</p>
+        </div>
+        <div class="skill-cat">
+          <span class="eyebrow">Frontend</span>
+          <p>React, SwiftUI, HTML/CSS, TypeScript</p>
+        </div>
+        <div class="skill-cat">
+          <span class="eyebrow">Backend</span>
+          <p>Node.js, Express, Spring Boot, REST APIs</p>
+        </div>
+        <div class="skill-cat">
+          <span class="eyebrow">ML / Data</span>
+          <p>PyTorch, TensorFlow/Keras, scikit-learn, Pandas, NumPy, time-series analysis</p>
+        </div>
+        <div class="skill-cat">
+          <span class="eyebrow">Databases &amp; Cloud</span>
+          <p>MongoDB, Firebase, Azure, Docker</p>
+        </div>
+        <div class="skill-cat">
+          <span class="eyebrow">Tools &amp; Practices</span>
+          <p>Git, CI/CD, Agile/Scrum, GitHub, unit testing</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="photo">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Behind the lens</h2>
+        <span class="section-num">04 / photo</span>
+      </div>
+      <p class="photo-intro">Outside of code, I shoot film and digital — mostly people, places, and whatever looks good in the light. This grid is wired up and ready; drop your own shots in and it becomes a real gallery.</p>
+      <div class="photo-grid">
+        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 01<br>replace me</span></div>
+        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 02<br>replace me</span></div>
+        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 03<br>replace me</span></div>
+        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 04<br>replace me</span></div>
+        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 05<br>replace me</span></div>
+        <div class="photo-tile"><div class="photo-fill"></div><span class="photo-placeholder-label">📷 photo 06<br>replace me</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="footer-marquee">behind the lens · behind the lens · behind the lens · behind the lens · behind the lens · behind the lens ·&nbsp;</div>
+    <div class="footer-grid">
+      <div>
+        <h2>Let's talk.</h2>
+        <p class="foot-lede">Open to graduate software engineering roles in Dublin and beyond. Always happy to talk shop about ML, frontend, or photography.</p>
+        <div class="foot-cta"><a href="mailto:agarkaranvi24@gmail.com">agarkaranvi24@gmail.com →</a></div>
+      </div>
+      <div class="foot-links">
+        <span class="eyebrow" style="color:var(--mustard)">Site navigation</span>
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#photo">Photography</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-social">
+        <a href="https://github.com/anviagarkar" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/anviagarkar" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Anvi Agarkar © 2026</span>
+      <span>Dublin, Ireland</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
